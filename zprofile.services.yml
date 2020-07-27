@@ -1,0 +1,5 @@
+services:
+  zprofile.twitter:
+    class: Drupal\zprofile\Service\Twitter
+    arguments:
+      - "@config.factory"

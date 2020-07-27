@@ -1,0 +1,19 @@
+uuid: f1ff7ea9-ed71-4399-97d7-69124efe00ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user_profile.field_twitter_user_name
+    - zprofile.user_profile_type.default_profile
+id: user_profile.default_profile.field_twitter_user_name
+field_name: field_twitter_user_name
+entity_type: user_profile
+bundle: default_profile
+label: Twitter User Name
+description: ""
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings: {}
+field_type: string

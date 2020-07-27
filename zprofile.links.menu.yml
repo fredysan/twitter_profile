@@ -1,0 +1,17 @@
+
+# User profile menu items definition
+entity.user_profile.collection:
+  title: 'User profile list'
+  route_name: entity.user_profile.collection
+  description: 'List User profile entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# User profile type menu items definition
+entity.user_profile_type.collection:
+  title: 'User profile type'
+  route_name: entity.user_profile_type.collection
+  description: 'List User profile type (bundles)'
+  parent: system.admin_structure
+  weight: 99

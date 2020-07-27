@@ -1,0 +1,10 @@
+name: "zprofile"
+type: module
+description: "User profile information"
+core: 8.x
+package: "Custom"
+dependencies:
+  - drupal:block
+  - drupal:user
+  - rest
+  - twitter_tweets

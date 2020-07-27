@@ -1,0 +1,10 @@
+entity.user_profile.add_form:
+  route_name: entity.user_profile.add_page
+  title: 'Add User profile'
+  appears_on:
+    - entity.user_profile.collection
+entity.user_profile_type.add_form:
+  route_name: entity.user_profile_type.add_form
+  title: 'Add User profile type'
+  appears_on:
+    - entity.user_profile_type.collection

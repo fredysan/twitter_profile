@@ -1,0 +1,13 @@
+{% for tweet in params.tweets %}
+  <div class='tweet-wrapper'>
+    <div class='tweet-profile-image'>
+      <img src='{{ tweet.user.profile_image_url }}'/>
+    </div>
+    <div class='tweet-text'>
+      <p>
+        {{ tweet.text }}
+        {{ tweet.created_at }}
+      </p>
+    </div>
+  </div>
+{% endfor %}

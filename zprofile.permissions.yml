@@ -1,0 +1,22 @@
+add user profile entities:
+  title: 'Create new User profile entities'
+
+administer user profile entities:
+  title: 'Administer User profile entities'
+  description: 'Allow to access the administration form to configure User profile entities.'
+  restrict access: true
+
+delete user profile entities:
+  title: 'Delete User profile entities'
+
+edit user profile entities:
+  title: 'Edit User profile entities'
+
+view published user profile entities:
+  title: 'View published User profile entities'
+
+view unpublished user profile entities:
+  title: 'View unpublished User profile entities'
+
+permission_callbacks:
+  - \Drupal\zprofile\userProfilePermissions::generatePermissions

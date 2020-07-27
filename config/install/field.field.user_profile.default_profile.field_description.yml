@@ -1,0 +1,21 @@
+uuid: 9ec3491e-4a9b-4461-aa79-1e02e5e81cad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user_profile.field_description
+    - zprofile.user_profile_type.default_profile
+  module:
+    - text
+id: user_profile.default_profile.field_description
+field_name: field_description
+entity_type: user_profile
+bundle: default_profile
+label: description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

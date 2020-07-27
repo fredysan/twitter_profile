@@ -1,0 +1,5 @@
+profile:
+  version: VERSION
+  css:
+    theme:
+      css/profile.css: {}

@@ -1,0 +1,22 @@
+uuid: cd92e4ac-1764-42fa-8b1e-31ee03c4e1ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - serialization
+    - user
+    - zprofile
+id: profile_resource
+plugin_id: profile_resource
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie
+  PATCH:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie

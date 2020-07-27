@@ -1,0 +1,19 @@
+uuid: d5763b02-abf4-4db0-89fd-90e6650752b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user_profile.field_job_title
+    - zprofile.user_profile_type.default_profile
+id: user_profile.default_profile.field_job_title
+field_name: field_job_title
+entity_type: user_profile
+bundle: default_profile
+label: 'Job Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

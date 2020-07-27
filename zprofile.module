@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Contains zprofile.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function zprofile_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the zprofile module.
+    case 'help.page.zprofile':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('User profile information') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function zprofile_theme() {
+  $theme = [];
+  $theme['tweet_listing'] = [
+    'variables' => ['params' => []],
+  ];
+  $theme['user_profile'] = [
+    'render element' => 'elements',
+    'file' => 'user_profile.page.inc',
+    'template' => 'user_profile',
+  ];
+  $theme['user_profile_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'user_profile.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function zprofile_theme_suggestions_user_profile(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#user_profile'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'user_profile__' . $sanitized_view_mode;
+  $suggestions[] = 'user_profile__' . $entity->bundle();
+  $suggestions[] = 'user_profile__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'user_profile__' . $entity->id();
+  $suggestions[] = 'user_profile__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function zprofile_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->getEntityTypeId() == 'user_profile') {
+    $twitter_user_name = $entity->get('field_twitter_user_name')->value;
+    $twitter_service = \Drupal::service('zprofile.twitter');
+    $twitter_service->setTwitterUser($twitter_user_name);
+    $twitter_block = $twitter_service->getTimelineBlock();
+    $build['twitter_stream'] = $twitter_block;
+  }
+}
