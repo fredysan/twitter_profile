@@ -41,7 +41,7 @@ $ fin drush en rest
 ```
 $ mkdir web/modules/custom
 $ cd web/modules/custom
-$ git clone ...
+$ git clone https://github.com/fredysan/twitter_profile zprofile
 $ fin drush en zprofile
 ```
 
